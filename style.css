@@ -1,4 +1,4 @@
-.display{
+#display{
 
 }
 .book{
@@ -7,7 +7,7 @@
     background-color: rgba(211, 158, 89, 0.776);
     border-radius: 5px;
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(9, 1fr);;
     background-image:url(assets/book-cover.jpeg);
     color:white;
@@ -15,17 +15,17 @@
 }
 .title{
     grid-row: 3;
-    grid-column: 4/6;
+    grid-column: 1;
     justify-self: center;
 }
 .author{
     grid-row:4;
-    grid-column: 5;
+    grid-column: 1;
     justify-self: center;
 }
 .pages{
     grid-row:6;
-    grid-column:5;
+    grid-column:1;
     font-size: small;
     justify-self: center;
 }
