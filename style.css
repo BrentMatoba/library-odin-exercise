@@ -15,17 +15,20 @@
 }
 .title{
     grid-row: 3;
-    grid-column: 5;
+    grid-column: 4/6;
     justify-self: center;
 }
 .author{
     grid-row:4;
     grid-column: 5;
-    justify-content: center;
+    justify-self: center;
 }
 .pages{
     grid-row:6;
     grid-column:5;
     font-size: small;
-    justify-content: center;
+    justify-self: center;
+}
+#addBookButton{
+
 }

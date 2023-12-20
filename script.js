@@ -11,14 +11,25 @@ function Book(author, title, pages){
     }
 }
 function addBookToLibrary(book){
+    //obviously I will need to edit this to display to the dom not just the console
     myLibrary.push(book);
 }
 
 function displayLibrary(){
+    //obviously I will need to edit this to display to the dom not just the console
     for(let i=0; i<myLibrary.length; i++){
        console.log(myLibrary[i].display());
     }
 }
+
+let bookButton = document.getElementById("addBookButton");
+bookButton.addEventListener("click", function(){
+    console.log("Buoop");
+})
+
+
+
+
 
 const Hobbit = new Book("Tolkein", "The Hobbit", 304);
 addBookToLibrary(Hobbit);
