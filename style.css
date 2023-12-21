@@ -2,6 +2,13 @@
     display: flex;
     flex-wrap: wrap;
 }
+.bookForm{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border: slategray 2px solid;
+}
+
 .book{
     width: 200px;
     height: 300px;
