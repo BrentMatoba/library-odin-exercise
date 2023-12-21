@@ -8,6 +8,22 @@
     width: 300px;
     border: slategray 2px solid;
 }
+.format{
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+.formText{
+    grid-column: 1;
+}
+.formInput{
+    grid-column: 2/6;
+    width: 100%
+}
+.formSubmit{
+    width: 200px;
+    align-self: center;
+}
+
 
 .book{
     width: 200px;
