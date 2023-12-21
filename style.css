@@ -7,7 +7,7 @@ body{
     flex-wrap: wrap;
 }
 .bookForm{
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 300px;
     border: slategray 2px solid;

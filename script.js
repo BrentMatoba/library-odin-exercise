@@ -39,6 +39,8 @@ function addBookToLibrary(book){
 
 }
 
+
+
 function displayLibrary(){
     //obviously I will need to edit this to display to the dom not just the console
     for(let i=0; i<myLibrary.length; i++){
@@ -46,12 +48,21 @@ function displayLibrary(){
     }
 }
 
-let bookButton = document.getElementById("addBookButton");
-bookButton.addEventListener("click", function(){
-    console.log("Buoop");
+
+
+
+
+
+const addBookButton = document.getElementById("addBookButton");
+addEventListener("click", function(){
+        const form = document.getElementById("bookForm");
+        form.style.display = "flex";
+    })
+const submitButton = document.getElementById("formSubmit");
+submitButton.addEventListener("submit", function(event){
+    alert("beep");
+    //event.preventDefault();
 })
-
-
 
 
 
