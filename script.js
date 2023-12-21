@@ -11,10 +11,11 @@ function Book(author, title, pages){
     }
 }
 function addBookToLibrary(book){
-    //obviously I will need to edit this to display to the dom not just the console
+    //creates book div for dom
     let bookObject = document.createElement("div")
     bookObject.classList.add("book");
 
+    //creates title, author, page number divs to be applied to book
     let titleString = document.createElement("div");
     titleString.textContent = book.title;
     titleString.classList.add("title");
@@ -27,10 +28,12 @@ function addBookToLibrary(book){
     pagesString.textContent = book.pages;
     pagesString.classList.add("pages");
 
+    //applies text to book
     bookObject.appendChild(titleString);
     bookObject.appendChild(authorString);
     bookObject.appendChild(pagesString);
 
+    //appends book to display element
     let display = document.getElementById("display");
     display.appendChild(bookObject);
 
@@ -53,5 +56,20 @@ bookButton.addEventListener("click", function(){
 
 
 const Hobbit = new Book("Tolkein", "The Hobbit", 304);
+const Hobbit2 = new Book("Miguel de Cervantes", "Don Quixote", 304);
+const Hobbit3 = new Book("Lewis Carroll", "The Adventures of Huckleberry Finn", 304);
+const Hobbit4 = new Book("Mark Twain", "The Adventures of Tom Sawyer", 304);
+const Hobbit5 = new Book("Robert Louis Stevenson", "Treasure Island", 304);
+const Hobbit6 = new Book("Jane Austen", "Pride and Prejudice", 304);
+const Hobbit7 = new Book("Charlotte Brontë", "Wuthering Heights", 304);
+
+
 addBookToLibrary(Hobbit);
+addBookToLibrary(Hobbit2);
+addBookToLibrary(Hobbit3);
+addBookToLibrary(Hobbit4);
+addBookToLibrary(Hobbit5);
+addBookToLibrary(Hobbit6);
+addBookToLibrary(Hobbit7);
+
 displayLibrary();
