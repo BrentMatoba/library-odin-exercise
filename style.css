@@ -1,3 +1,7 @@
+body{
+    background-image: url(assets/library-background.avif);
+    background-repeat: repeat;
+}
 #display{
     display: flex;
     flex-wrap: wrap;
@@ -7,20 +11,24 @@
     flex-direction: column;
     width: 300px;
     border: slategray 2px solid;
+    background-color: white;
+
 }
 .format{
     display:grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+
 }
 .formText{
     grid-column: 1;
+    width: 50px;
 }
 .formInput{
-    grid-column: 2/6;
+    grid-column: 2/7;
     width: 100%
 }
-.formSubmit{
-    width: 200px;
+#formSubmit{
+    width: 100%;
     align-self: center;
 }
 
