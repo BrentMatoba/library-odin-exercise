@@ -4,11 +4,20 @@ function Book(author, title, pages){
     this.author=author;
     this.title=title;
     this.pages=pages;
+    this.read;
+    this.index = myLibrary.length;
 
     this.display = function(){
         console.log(this.author, this.title, this.pages)
         return this.author, this.title, this.pages; //either need to use string literals here or pack into an array.
     }
+}
+
+function updateIndexes(){
+    myLibrary.forEach((book, index)=>{
+        book.index=index;
+        console.log(book.title + book.index);
+})
 }
 function addBookToLibrary(book){
     //creates book div for dom
@@ -33,20 +42,20 @@ function addBookToLibrary(book){
     bookObject.appendChild(authorString);
     bookObject.appendChild(pagesString);
 
+    //gives book object id of title
+    bookObject.id = book.title;
+
     //appends book to display element
     let display = document.getElementById("display");
     display.appendChild(bookObject);
 
-}
+    myLibrary.push(book);
+    console.log(book.index);
 
 
-
-function displayLibrary(){
-    //obviously I will need to edit this to display to the dom not just the console
-    for(let i=0; i<myLibrary.length; i++){
-       console.log(myLibrary[i].display());
+    updateIndexes();
     }
-}
+
 
 
 
@@ -74,21 +83,20 @@ document.getElementById('bookForm').addEventListener('submit', function(event) {
 
 
 
-const Hobbit = new Book("Tolkein", "The Hobbit", 304);
-const Hobbit2 = new Book("Miguel de Cervantes", "Don Quixote", 304);
-const Hobbit3 = new Book("Lewis Carroll", "The Adventures of Huckleberry Finn", 304);
-const Hobbit4 = new Book("Mark Twain", "The Adventures of Tom Sawyer", 304);
-const Hobbit5 = new Book("Robert Louis Stevenson", "Treasure Island", 304);
-const Hobbit6 = new Book("Jane Austen", "Pride and Prejudice", 304);
-const Hobbit7 = new Book("Charlotte Brontë", "Wuthering Heights", 304);
+//const Hobbit = new Book("Tolkein", "The Hobbit", 304);
+//const Hobbit2 = new Book("Miguel de Cervantes", "Don Quixote", 304);
+//const Hobbit3 = new Book("Lewis Carroll", "The Adventures of Huckleberry Finn", 304);
+//const Hobbit4 = new Book("Mark Twain", "The Adventures of Tom Sawyer", 304);
+//const Hobbit5 = new Book("Robert Louis Stevenson", "Treasure Island", 304);
+//const Hobbit6 = new Book("Jane Austen", "Pride and Prejudice", 304);
+//const Hobbit7 = new Book("Charlotte Brontë", "Wuthering Heights", 304);
 
 
-addBookToLibrary(Hobbit);
-addBookToLibrary(Hobbit2);
-addBookToLibrary(Hobbit3);
-addBookToLibrary(Hobbit4);
-addBookToLibrary(Hobbit5);
-addBookToLibrary(Hobbit6);
-addBookToLibrary(Hobbit7);
+//addBookToLibrary(Hobbit);
+//addBookToLibrary(Hobbit2);
+//addBookToLibrary(Hobbit3);
+//addBookToLibrary(Hobbit4);
+//addBookToLibrary(Hobbit5);
+//addBookToLibrary(Hobbit6);
+//addBookToLibrary(Hobbit7);
 
-displayLibrary();
