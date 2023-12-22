@@ -61,8 +61,15 @@ addEventListener("click", function(){
 document.getElementById('bookForm').addEventListener('submit', function(event) {
     event.preventDefault(); // This stops the page reload. 
     //*Future note: Needs to be added to the FORM, not the submit button
-        
 
+
+    let name = document.getElementById("formTitle");
+    let author = document.getElementById("formAuthor");
+    let pages = document.getElementById("formPages");
+
+    let book = new Book(name.value, author.value, pages.value);
+    addBookToLibrary(book);
+    document.getElementById("bookForm").reset();
   });
 
 
