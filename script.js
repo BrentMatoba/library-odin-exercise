@@ -45,9 +45,35 @@ function addBookToLibrary(book){
     //gives book object id of title
     bookObject.id = book.title;
 
+
+
+    //adds buttons below book
+    let bookButtons = document.createElement("div");
+    bookButtons.classList.add("bookButtons");
+
+    let readButton = document.createElement("button");
+        readButton.innerHTML = "Read";
+        readButton.classList.add("readButton");
+    let removeButton = document.createElement("button");
+        removeButton.innerHTML = "Remove";
+        removeButton.classList.add("removeButton");
+
+    bookButtons.appendChild(readButton);
+    bookButtons.appendChild(removeButton);
+
+
+    //formats book and buttons together before being displayed
+    let bookCard = document.createElement("div");
+    bookCard.classList.add("bookCard");
+    bookCard.appendChild(bookObject);
+    bookCard.appendChild(bookButtons);
+
+
+
+
     //appends book to display element
     let display = document.getElementById("display");
-    display.appendChild(bookObject);
+    display.appendChild(bookCard);
 
     myLibrary.push(book);
     console.log(book.index);
