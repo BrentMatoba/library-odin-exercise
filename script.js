@@ -58,11 +58,12 @@ addEventListener("click", function(){
         const form = document.getElementById("bookForm");
         form.style.display = "flex";
     })
-const submitButton = document.getElementById("formSubmit");
-submitButton.addEventListener("submit", function(event){
-    alert("beep");
-    //event.preventDefault();
-})
+document.getElementById('bookForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // This stops the page reload. 
+    //*Future note: Needs to be added to the FORM, not the submit button
+        
+
+  });
 
 
 
