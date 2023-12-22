@@ -4,13 +4,15 @@ function Book(author, title, pages){
     this.author=author;
     this.title=title;
     this.pages=pages;
-    this.read;
+    this.read = false;
     this.index = myLibrary.length;
 
     this.display = function(){
         console.log(this.author, this.title, this.pages)
         return this.author, this.title, this.pages; //either need to use string literals here or pack into an array.
     }
+
+
 }
 
 function updateIndexes(){
@@ -89,7 +91,7 @@ function addBookToLibrary(book){
 
 
 const addBookButton = document.getElementById("addBookButton");
-addEventListener("click", function(){
+addBookButton.addEventListener("click", function(){
         const form = document.getElementById("bookForm");
         form.style.display = "flex";
     })
@@ -109,7 +111,7 @@ document.getElementById('bookForm').addEventListener('submit', function(event) {
 
 
 
-//const Hobbit = new Book("Tolkein", "The Hobbit", 304);
+const Hobbit = new Book("Tolkein", "The Hobbit", 304);
 //const Hobbit2 = new Book("Miguel de Cervantes", "Don Quixote", 304);
 //const Hobbit3 = new Book("Lewis Carroll", "The Adventures of Huckleberry Finn", 304);
 //const Hobbit4 = new Book("Mark Twain", "The Adventures of Tom Sawyer", 304);
@@ -118,7 +120,7 @@ document.getElementById('bookForm').addEventListener('submit', function(event) {
 //const Hobbit7 = new Book("Charlotte Brontë", "Wuthering Heights", 304);
 
 
-//addBookToLibrary(Hobbit);
+addBookToLibrary(Hobbit);
 //addBookToLibrary(Hobbit2);
 //addBookToLibrary(Hobbit3);
 //addBookToLibrary(Hobbit4);
