@@ -50,7 +50,14 @@ body{
     text-align: center;
 }
 .bookButtons{
-
+    display: flex;
+}
+.readText{
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    justify-self: center;
+    margin-left: 10px;
 }
 .title{
     grid-row: 3;

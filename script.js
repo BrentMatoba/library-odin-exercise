@@ -54,9 +54,21 @@ function addBookToLibrary(book){
     let bookButtons = document.createElement("div");
     bookButtons.classList.add("bookButtons");
 
+    let readDiv = document.createElement("div");
+    readDiv.innerText = "Unread";
+    readDiv.classList.add("readText");
+
     let readButton = document.createElement("button");
         readButton.innerHTML = "Read";
         readButton.classList.add("readButton");
+        readButton.addEventListener("click", function(){
+            if(readDiv.innerHTML == "Unread"){
+                readDiv.innerHTML = "Read";
+            }
+            else{
+                readDiv.innerHTML = "Unread";
+            }
+        })
     let removeButton = document.createElement("button");
         removeButton.innerHTML = "Remove";
         removeButton.classList.add("removeButton");
@@ -69,10 +81,14 @@ function addBookToLibrary(book){
 
             updateIndexes(); // updates all books and indexes
         })
+    
+
+
+    
 
     bookButtons.appendChild(readButton);
     bookButtons.appendChild(removeButton);
-
+    bookButtons.appendChild(readDiv);
  
 
     //formats book and buttons together before being displayed
