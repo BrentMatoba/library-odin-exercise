@@ -61,7 +61,13 @@ function addBookToLibrary(book){
         removeButton.innerHTML = "Remove";
         removeButton.classList.add("removeButton");
         removeButton.addEventListener("click", function(){ //removes book
-            bookCard.remove();
+            myLibrary = myLibrary.filter(function(item){ //removes book from myLibrary
+                console.log(book.title + "namethingy");
+                return item.title != book.title;
+            })
+            bookCard.remove(); //removes actual div from DOM
+
+            updateIndexes(); // updates all books and indexes
         })
 
     bookButtons.appendChild(readButton);
