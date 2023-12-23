@@ -15,6 +15,7 @@ function Book(author, title, pages){
 
 }
 
+
 function updateIndexes(){
     myLibrary.forEach((book, index)=>{
         book.index=index;
@@ -59,10 +60,14 @@ function addBookToLibrary(book){
     let removeButton = document.createElement("button");
         removeButton.innerHTML = "Remove";
         removeButton.classList.add("removeButton");
+        removeButton.addEventListener("click", function(){ //removes book
+            bookCard.remove();
+        })
 
     bookButtons.appendChild(readButton);
     bookButtons.appendChild(removeButton);
 
+ 
 
     //formats book and buttons together before being displayed
     let bookCard = document.createElement("div");
