@@ -6,20 +6,15 @@ function Book(author, title, pages){
     this.pages=pages;
     this.read = false;
     this.index = myLibrary.length;
-
-    this.display = function(){
-        console.log(this.author, this.title, this.pages)
-        return this.author, this.title, this.pages; //either need to use string literals here or pack into an array.
-    }
-
-
 }
 
 
 function updateIndexes(){
+    //iterates over library, assigns index to books. Used after myLibrary has been altered
+    console.log("Library: ");
     myLibrary.forEach((book, index)=>{
         book.index=index;
-        console.log(book.title + book.index);
+        console.log("Title: " + "\""+ book.title+"\", " + " Index: "+book.index);
 })
 }
 function addBookToLibrary(book){
@@ -54,6 +49,7 @@ function addBookToLibrary(book){
     let bookButtons = document.createElement("div");
     bookButtons.classList.add("bookButtons");
 
+    //Displays read/unread text
     let readDiv = document.createElement("div");
     readDiv.innerText = "Unread";
     readDiv.classList.add("readText");
@@ -64,9 +60,11 @@ function addBookToLibrary(book){
         readButton.addEventListener("click", function(){
             if(readDiv.innerHTML == "Unread"){
                 readDiv.innerHTML = "Read";
+                book.read = true;
             }
             else{
                 readDiv.innerHTML = "Unread";
+                book.read = false;
             }
         })
     let removeButton = document.createElement("button");
@@ -74,16 +72,12 @@ function addBookToLibrary(book){
         removeButton.classList.add("removeButton");
         removeButton.addEventListener("click", function(){ //removes book
             myLibrary = myLibrary.filter(function(item){ //removes book from myLibrary
-                console.log(book.title + "namethingy");
                 return item.title != book.title;
             })
             bookCard.remove(); //removes actual div from DOM
 
             updateIndexes(); // updates all books and indexes
         })
-    
-
-
     
 
     bookButtons.appendChild(readButton);
@@ -104,24 +98,19 @@ function addBookToLibrary(book){
     let display = document.getElementById("display");
     display.appendChild(bookCard);
 
-    myLibrary.push(book);
-    console.log(book.index);
-
-
-    updateIndexes();
+    myLibrary.push(book); //adds book to library
+    updateIndexes(); //updates indexs of all books in library
     }
 
 
 
-
-
-
-
-const addBookButton = document.getElementById("addBookButton");
+const addBookButton = document.getElementById("addBookButton"); //button that brings up form
 addBookButton.addEventListener("click", function(){
         const form = document.getElementById("bookForm");
-        form.style.display = "flex";
+        form.style.display = "flex"; //makes form visible
     })
+
+
 document.getElementById('bookForm').addEventListener('submit', function(event) {
     event.preventDefault(); // This stops the page reload. 
     //*Future note: Needs to be added to the FORM, not the submit button
@@ -131,27 +120,14 @@ document.getElementById('bookForm').addEventListener('submit', function(event) {
     let author = document.getElementById("formAuthor");
     let pages = document.getElementById("formPages");
 
-    let book = new Book(name.value, author.value, pages.value);
-    addBookToLibrary(book);
-    document.getElementById("bookForm").reset();
+    let book = new Book(name.value, author.value, pages.value); //instantiates book
+    addBookToLibrary(book);  //adds book to library
+    document.getElementById("bookForm").reset(); //clears form
   });
 
 
 
-const Hobbit = new Book("Tolkein", "The Hobbit", 304);
-//const Hobbit2 = new Book("Miguel de Cervantes", "Don Quixote", 304);
-//const Hobbit3 = new Book("Lewis Carroll", "The Adventures of Huckleberry Finn", 304);
-//const Hobbit4 = new Book("Mark Twain", "The Adventures of Tom Sawyer", 304);
-//const Hobbit5 = new Book("Robert Louis Stevenson", "Treasure Island", 304);
-//const Hobbit6 = new Book("Jane Austen", "Pride and Prejudice", 304);
-//const Hobbit7 = new Book("Charlotte Brontë", "Wuthering Heights", 304);
-
-
+const Hobbit = new Book("J.R.R. Tolkien", "The Hobbit", 304);
 addBookToLibrary(Hobbit);
-//addBookToLibrary(Hobbit2);
-//addBookToLibrary(Hobbit3);
-//addBookToLibrary(Hobbit4);
-//addBookToLibrary(Hobbit5);
-//addBookToLibrary(Hobbit6);
-//addBookToLibrary(Hobbit7);
+
 
